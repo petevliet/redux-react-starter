@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/petevliet/redux-react-starter/issues"
   },
-  "homepage": "https://github.com/petevliet/redux-react-starter#readme"
+  "homepage": "https://github.com/petevliet/redux-react-starter#readme",
+  "devDependencies": {
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
+  }
 }
