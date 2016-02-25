@@ -2,30 +2,30 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    './src/js/index.js'
+    'webpack-hot-middleware/client?reload=true',
+    './client/src/js/index.js'
   ],
+  output: {
+    path: __dirname + '/client/dist',
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
   module: {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel'
+      loader: 'babel-loader'
     }]
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
-  output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
-    filename: 'bundle.js'
-  },
   devServer: {
-    contentBase: './dist',
+    contentBase: './client/dist',
     hot: true
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
   ]
 };
